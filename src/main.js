@@ -7,14 +7,13 @@ function formatCSV(file, options) {
 	fs.createReadStream(`${file}`)
 		.pipe(csv.parse({ delimiter: ',', columns: true }))
 		.pipe(
-			csv.transform((input) => {
-				let test = Object.assign({
+			csv.transform((input) =>
+				Object.assign({
 					'Device Serial Number': input['Device Serial Number'],
 					'Windows Product ID': input['Windows Product ID'],
 					'Hardware Hash': input['Hardware Hash'],
-				});
-				return test;
-			})
+				})
+			)
 		)
 		.pipe(csv.stringify({ header: true }))
 		.pipe(fs.createWriteStream(`${options.out}/${file}`))
