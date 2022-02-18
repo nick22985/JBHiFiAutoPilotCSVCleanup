@@ -23,16 +23,16 @@ function formatCSV(file, options) {
 }
 
 export async function main(options) {
+	fs.mkdir(options.out, { recursive: true }, function (err) {
+		if (err) {
+			return console.log('Unable to create directory: ' + err);
+		}
+	});
 	if (path.extname(options.path) == '') {
 		fs.readdir(options.path, function (err, files) {
 			if (err) {
 				return console.log('Unable to scan directory: ' + err);
 			}
-			fs.mkdir(options.out, { recursive: true }, function (err) {
-				if (err) {
-					return console.log('Unable to create directory: ' + err);
-				}
-			});
 			files.forEach(async function (file) {
 				if (path.extname(file) === '.csv') {
 					if (file.match(/(AutoPilot)/g) || options.force) {
@@ -42,11 +42,6 @@ export async function main(options) {
 			});
 		});
 	} else {
-		fs.mkdir(options.out, { recursive: true }, function (err) {
-			if (err) {
-				return console.log('Unable to create directory: ' + err);
-			}
-		});
 		formatCSV(options.path, options);
 	}
 }
