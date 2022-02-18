@@ -2,6 +2,7 @@ import arg from 'arg';
 import inquirer from 'inquirer';
 import { main } from './main';
 import pjson from '../package.json';
+import chalk from 'chalk';
 
 export function parseArgumentsOptions(argv) {
 	try {
