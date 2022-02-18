@@ -1,5 +1,5 @@
 {
-	"name": "@nick22985/JBHiFiAutoPilotCSVCleanup",
+	"name": "@nick22985/jb-hifi-autopilot-csv-cleanup",
 	"version": "1.0.0",
 	"description": "Cleans up autopilot files sent from JBHIFI to be able to be upladed to educationstore",
 	"main": "arc/JBHiFiAutoPilotCSVCleanup",
