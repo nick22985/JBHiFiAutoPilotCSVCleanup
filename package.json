@@ -1,6 +1,6 @@
 {
 	"name": "@nick22985/JBHiFiAutoPilotCSVCleanup",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"description": "Cleans up autopilot files sent from JBHIFI to be able to be upladed to educationstore",
 	"main": "arc/JBHiFiAutoPilotCSVCleanup",
 	"bin": {
