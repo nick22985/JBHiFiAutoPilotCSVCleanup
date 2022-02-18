@@ -36,7 +36,9 @@ export async function main(options) {
 			});
 			files.forEach(async function (file) {
 				if (path.extname(file) === '.csv') {
-					formatCSV(file, options);
+					if (file.match(/(AutoPilot)/g) || options.force) {
+						formatCSV(file, options);
+					}
 				}
 			});
 		});
