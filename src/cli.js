@@ -31,7 +31,7 @@ export function parseArgumentsOptions(argv) {
 			help: args['--help'] || false,
 		};
 	} catch (e) {
-		console.log(e);
+		console.log(`${chalk.bold.bgRed('ERROR')} ${e}}`);
 		process.exit(1);
 	}
 }
@@ -39,7 +39,7 @@ export function parseArgumentsOptions(argv) {
 export async function cli(args) {
 	let options = parseArgumentsOptions(args);
 	if (options.version) {
-		console.log(`v${version}`);
+		console.log(`${chalk.green(pjson.name)} v${pjson.version} by ${pjson.author}`);
 		process.exit(1);
 	}
 	if (options.help) {
